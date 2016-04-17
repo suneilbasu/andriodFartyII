@@ -11,9 +11,7 @@ import android.widget.Toast;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
-    private MediaPlayer fartSound;
-
-
+    MediaPlayer fartSound;
     Button farty;
 
     @Override
@@ -25,22 +23,8 @@ public class MainActivity extends AppCompatActivity {
         farty.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-//                Toast.makeText(MainActivity.this, "raspberry", Toast.LENGTH_SHORT).show();
-                if(fartSound.isPlaying()){
-                    fartSound.stop();
-                }
-                try{
-                    fartSound.reset();
-                    AssetFileDescriptor afd;
-                    afd = getAssets().openFd("R.raw.raspberry1");
-                    fartSound.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
-                    fartSound.prepare();
-                    fartSound.start();
-                } catch (IllegalStateException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                Toast.makeText(MainActivity.this, "raspberry", Toast.LENGTH_SHORT).show();
+
             }
         });
 
